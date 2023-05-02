@@ -1,7 +1,7 @@
 # TAO Toolkit Quick Start
 The NVIDIA TAO Toolkit is a software tool that helps you train machine learning models without needing to be an expert in AI or having a lot of data. It makes the process easier and faster by using pre-existing models and allowing you to use your own data to improve them. This can help you make better predictions and decisions based on your specific needs.
 
-[TAO](TAO.png)
+<img src = "TAO.png">
 
 # Requirements
 ## Minimum Hardware requirements
@@ -42,6 +42,8 @@ TAO toolkit is available as a docker container or a collection of python wheels.
 ## 1. Launcher CLI
 
 The TAO Toolkit launcher is a simple command-line interface that is based on Python. It acts as a front-end for the TAO Toolkit containers, which are built on top of PyTorch and TensorFlow. The launcher makes it easier to use TAO Toolkit by abstracting away the details of which network is implemented in which container. When you select a particular model to use, the corresponding container is automatically launched by the CLI.
+
+<img src = "tao_launcher.jpg">
 
 > To get started with the launcher, follow the instructions below to install the required pre-requisite software. 
 
@@ -105,11 +107,18 @@ NVIDIA recommends setting up a python environment using `miniconda`. The followi
 1. Download the TAO package
 To download the `TAO` package, you can execute a command that will retrieve a collection of files containing startup scripts, Jupyter notebooks, and configuration files necessary for running `TAO` software. This command will allow you to obtain all the required files in a convenient and organized package for your usage.
 
+    **DIRECTLY FROM CONTAINER**
+    Users have option to also run TAO directly using the docker container. To use container directly, user needs to know which container to pull. There are multiple containers under TAO, and depending on the model that you want to train you will need to pull the appropriate container. This is not required when using the Launcher CLI.
+
     ```
     wget --content-disposition https://api.ngc.nvidia.com/v2/resources/nvidia/tao/tao-getting-started/versions/4.0.1/zip -O getting_started_v4.0.1.zip
     unzip -u getting_started_v4.0.1.zip  -d ./getting_started_v4.0.1 && rm -rf getting_started_v4.0.1.zip && cd ./getting_started_v4.0.1
     ```
+    More information about running directly from docker is provided in [TAO documentation - Container](https://docs.nvidia.com/tao/tao-toolkit/text/working_with_the_containers.html)
     or
+
+    To get started, use the setup/quickstart_launcher.sh to validate your setup and install TAO launcher. Jupyter notebooks to train using the Launcher is provided under notebooks/launcher_starter_kit.
+
     ```
     bash setup/quickstart_launcher.sh --install
     ```
