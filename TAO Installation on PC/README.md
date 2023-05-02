@@ -108,6 +108,7 @@ NVIDIA recommends setting up a python environment using `miniconda`. The followi
 To download the `TAO` package, you can execute a command that will retrieve a collection of files containing startup scripts, Jupyter notebooks, and configuration files necessary for running `TAO` software. This command will allow you to obtain all the required files in a convenient and organized package for your usage.
 
     **DIRECTLY FROM CONTAINER**
+    
     Users have option to also run TAO directly using the docker container. To use container directly, user needs to know which container to pull. There are multiple containers under TAO, and depending on the model that you want to train you will need to pull the appropriate container. This is not required when using the Launcher CLI.
 
     ```
