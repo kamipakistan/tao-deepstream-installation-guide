@@ -7,11 +7,11 @@ The NVIDIA TAO Toolkit is a software tool that helps you train machine learning 
 ## Minimum Hardware requirements
 For optimal training performance using TAO Toolkit and its supported models, it is recommended to use the following system configuration:
 
-> 32 GB system RAM
-> 32 GB of GPU RAM
-> 8 core CPU
-> 1 NVIDIA GPU
-> 100 GB of SSD space
+* 32 GB system RAM
+* 32 GB of GPU RAM
+* 8 core CPU
+* 1 NVIDIA GPU
+* 100 GB of SSD space
 
 TAO Toolkit is supported on discrete GPUs, such as H100, A100, A40, A30, A2, A16, A100x, A30x, V100, T4, Titan-RTX and Quadro-RTX.
 
@@ -160,8 +160,19 @@ NVIDIA recommends setting up a python environment using `miniconda`. The followi
 1. Download the TAO package
 To download the `TAO` package, you can execute a command that will retrieve a collection of files containing startup scripts, Jupyter notebooks, and configuration files necessary for running `TAO` software. This command will allow you to obtain all the required files in a convenient and organized package for your usage.
 
+<<<<<<< HEAD
     **DIRECTLY FROM CONTAINER**
 
+=======
+    > The TAO launcher can be installed in two ways:
+
+    a. Directly from the container
+
+    b. Using the CLI launcher via the quick start script.
+
+    **A. Directly From Container**
+    
+>>>>>>> 229cc1b5ea8c5bf48d7c26de6cf3e074415fcde2
     Users have option to also run TAO directly using the docker container. To use container directly, user needs to know which container to pull. There are multiple containers under TAO, and depending on the model that you want to train you will need to pull the appropriate container. This is not required when using the Launcher CLI.
 
     ```
@@ -169,9 +180,11 @@ To download the `TAO` package, you can execute a command that will retrieve a co
     unzip -u getting_started_v4.0.1.zip  -d ./getting_started_v4.0.1 && rm -rf getting_started_v4.0.1.zip && cd ./getting_started_v4.0.1
     ```
     More information about running directly from docker is provided in [TAO documentation - Container](https://docs.nvidia.com/tao/tao-toolkit/text/working_with_the_containers.html)
-    or
+    
 
-    To get started, use the setup/quickstart_launcher.sh to validate your setup and install TAO launcher. Jupyter notebooks to train using the Launcher is provided under notebooks/launcher_starter_kit.
+    **B. Via Quick Start Script**
+
+    Use the setup/quickstart_launcher.sh to validate your setup and install TAO launcher. Jupyter notebooks to train using the Launcher is provided under notebooks/launcher_starter_kit.
 
     ```
     bash setup/quickstart_launcher.sh --install
@@ -225,4 +238,10 @@ To download the `TAO` package, you can execute a command that will retrieve a co
           {list,stop,info,augment,bpnet,classification,detectnet_v2,dssd,emotionnet,faster_rcnn,fpenet,gazenet,gesturenet,heartratenet
           ,intent_slot_classification,lprnet,mask_rcnn,punctuation_and_capitalization,question_answering,retinanet,speech_to_text,
           ssd,text_classification,converter,token_classification,unet,yolo_v3,yolo_v4,yolo_v4_tiny}
+    ```
+    > Note
+    
+    > When installing the TAO Toolkit Launcher to your host machine’s native python3 as opposed to the recommended route of using virtual environment, you may get an error saying that tao binary wasn’t found. This is because the path to your tao binary installed by pip wasn’t added to the PATH environment variable in your local machine. In this case, please run the following command:
+    ```
+    export PATH=$PATH:~/.local/bin
     ```
