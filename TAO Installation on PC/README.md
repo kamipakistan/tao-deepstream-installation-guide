@@ -1,7 +1,7 @@
 # TAO Toolkit Quick Start
 The NVIDIA TAO Toolkit is a software tool that helps you train machine learning models without needing to be an expert in AI or having a lot of data. It makes the process easier and faster by using pre-existing models and allowing you to use your own data to improve them. This can help you make better predictions and decisions based on your specific needs.
 
-[TAO](TAO.png)
+<img src = "TAO.png">
 
 # Requirements
 ## Minimum Hardware requirements
