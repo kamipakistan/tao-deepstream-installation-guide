@@ -50,22 +50,73 @@ The TAO Toolkit launcher is a simple command-line interface that is based on Pyt
 ## Installing the Pre-requisites.
 >The TAO Toolkit launcher is strictly a python3 only package, capable of running on python versions >= 3.6.9.
 
-##### 1. Docker Installation. 
-The first step involves installing Docker, which is a platform for creating and running software in containers. To install Docker, you can follow the instructions provided in the link given. This will allow you to download Docker-CE, which is the community edition of Docker, and install it on your computer. Once Docker is installed, you will be able to use it to run TAO Toolkit in a container
-> Docker Installation [Link]().
+#### 1. Docker Installation. 
+The first step involves installing Docker, which is a platform for creating and running software in containers. To install Docker, you can follow the instructions provided in this [Link](https://docs.docker.com/engine/install/ubuntu/). This will allow you to download Docker-CE, which is the community edition of Docker, and install it on your computer. Once Docker is installed, you will be able to use it to run TAO Toolkit in a container
 
-Once you have installed `docker-ce`, follow the [post-installation]() steps to ensure that the docker can be run without `sudo`.
 
-##### 2. Install nvidia-container-toolkit
-To install the nvidia-container-toolkit, you can follow the [installation guide]() provided. This toolkit is a set of tools and extensions that enable Docker containers to access the GPU on the host machine. By installing the nvidia-container-toolkit, you will be able to run TAO Toolkit in a Docker container with access to the GPU, which can greatly improve the performance of machine learning tasks.
+Once you have installed `docker-ce`, follow the [post-installation](https://docs.docker.com/engine/install/linux-postinstall/) steps to ensure that the docker can be run without `sudo`.
 
-##### 3. Get an [NGC](https://catalog.ngc.nvidia.com/?filters=&orderBy=weightPopularASC&query=) account and API key:
+#### 2. Install nvidia-container-toolkit
+To install the nvidia-container-toolkit, you can follow the Official [installation guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) or you can follow the following steps provided. This toolkit is a set of tools and extensions that enable Docker containers to access the GPU on the host machine. By installing the nvidia-container-toolkit, you will be able to run TAO Toolkit in a Docker container with access to the GPU, which can greatly improve the performance of machine learning tasks.
+
+
+1. Setting up NVIDIA Container Toolkit Setup the package repository and the GPG key:
+
+    ```
+    distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+          && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+          && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+                sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+                sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+    ```
+2. Install the nvidia-docker2 package (and dependencies) after updating the package listing:
+    ```
+    sudo apt-get update
+    ```
+    ```
+    sudo apt-get install -y nvidia-docker2
+    ```
+    Configure the Docker daemon to recognize the NVIDIA Container Runtime:
+    ```
+    sudo nvidia-ctk runtime configure --runtime=docker
+    ```
+    Restart the Docker daemon to complete the installation after setting the default runtime:
+    ```
+    sudo systemctl restart docker
+    ```
+    At this point, a working setup can be tested by running a base CUDA container:
+    ```
+    sudo docker run --rm --runtime=nvidia --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
+    ```
+    This should result in a console output shown below:
+    ```
+        +-----------------------------------------------------------------------------+
+        | NVIDIA-SMI 525.105.17   Driver Version: 525.105.17   CUDA Version: 12.0     |
+        |-------------------------------+----------------------+----------------------+
+        | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+        | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+        |                               |                      |               MIG M. |
+        |===============================+======================+======================|
+        |   0  NVIDIA GeForce ...  On   | 00000000:05:00.0  On |                  N/A |
+        |  0%   49C    P8    18W / 170W |    447MiB / 12288MiB |      1%      Default |
+        |                               |                      |                  N/A |
+        +-------------------------------+----------------------+----------------------+
+                                                                                           
+        +-----------------------------------------------------------------------------+
+        | Processes:                                                                  |
+        |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+        |        ID   ID                                                   Usage      |
+        |=============================================================================|
+        +-----------------------------------------------------------------------------+
+    ```
+
+#### 3. Get an [NGC](https://catalog.ngc.nvidia.com/?filters=&orderBy=weightPopularASC&query=) account and API key:
 a.  Go to NGC and click the `TAO Toolkit` container in the `Catalog` tab. This message is displayed: “Sign in to access the PULL feature of this repository”.
 b. Enter your Email address and click `Next`, or click `Create an Account`.
 c. Choose your organization when prompted for `Organization/Team`.
 d.  Click `Sign In`.
 
-##### 4. Log in to the NGC docker registry (nvcr.io) using the following command.
+#### 4. Log in to the NGC docker registry (nvcr.io) using the following command.
 
 ```
 docker login nvcr.io
@@ -77,7 +128,9 @@ a. Username: "$oauthtoken"
 b. Password: "YOUR_NGC_API_KEY"
 ```
 where `YOUR_NGC_API_KEY` corresponds to the key you generated from step 3.
-##### 5. Setup python environment
+
+
+#### 5. Setup python environment
 NVIDIA recommends setting up a python environment using `miniconda`. The following instructions show how to setup a python `conda` environment.
 
 1. Follow the instructions in this [link](https://docs.conda.io/en/latest/miniconda.html) to set up a conda environment using a miniconda.
@@ -108,7 +161,7 @@ NVIDIA recommends setting up a python environment using `miniconda`. The followi
 To download the `TAO` package, you can execute a command that will retrieve a collection of files containing startup scripts, Jupyter notebooks, and configuration files necessary for running `TAO` software. This command will allow you to obtain all the required files in a convenient and organized package for your usage.
 
     **DIRECTLY FROM CONTAINER**
-    
+
     Users have option to also run TAO directly using the docker container. To use container directly, user needs to know which container to pull. There are multiple containers under TAO, and depending on the model that you want to train you will need to pull the appropriate container. This is not required when using the Launcher CLI.
 
     ```
