@@ -50,13 +50,13 @@ The TAO Toolkit launcher is a simple command-line interface that is based on Pyt
 ## Installing the Pre-requisites.
 >The TAO Toolkit launcher is strictly a python3 only package, capable of running on python versions >= 3.6.9.
 
-#### 1. Docker Installation. 
+### 1. Docker Installation. 
 The first step involves installing Docker, which is a platform for creating and running software in containers. To install Docker, you can follow the instructions provided in this [Link](https://docs.docker.com/engine/install/ubuntu/). This will allow you to download Docker-CE, which is the community edition of Docker, and install it on your computer. Once Docker is installed, you will be able to use it to run TAO Toolkit in a container
 
 
 Once you have installed `docker-ce`, follow the [post-installation](https://docs.docker.com/engine/install/linux-postinstall/) steps to ensure that the docker can be run without `sudo`.
 
-#### 2. Install nvidia-container-toolkit
+### 2. Install nvidia-container-toolkit
 To install the nvidia-container-toolkit, you can follow the Official [installation guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) or you can follow the following steps provided. This toolkit is a set of tools and extensions that enable Docker containers to access the GPU on the host machine. By installing the nvidia-container-toolkit, you will be able to run TAO Toolkit in a Docker container with access to the GPU, which can greatly improve the performance of machine learning tasks.
 
 
@@ -110,13 +110,13 @@ To install the nvidia-container-toolkit, you can follow the Official [installati
         +-----------------------------------------------------------------------------+
     ```
 
-#### 3. Get an [NGC](https://catalog.ngc.nvidia.com/?filters=&orderBy=weightPopularASC&query=) account and API key:
-a.  Go to NGC and click the `TAO Toolkit` container in the `Catalog` tab. This message is displayed: “Sign in to access the PULL feature of this repository”.
-b. Enter your Email address and click `Next`, or click `Create an Account`.
-c. Choose your organization when prompted for `Organization/Team`.
-d.  Click `Sign In`.
+### 3. Get an [NGC](https://catalog.ngc.nvidia.com/?filters=&orderBy=weightPopularASC&query=) account and API key:
+1. Go to NGC and click the `TAO Toolkit` container in the `Catalog` tab. This message is displayed: “Sign in to access the PULL feature of this repository”.
+2. Enter your Email address and click `Next`, or click `Create an Account`.
+3. Choose your organization when prompted for `Organization/Team`.
+4. Click `Sign In`.
 
-#### 4. Log in to the NGC docker registry (nvcr.io) using the following command.
+### 4. Log in to the NGC docker registry (nvcr.io) using the following command.
 
 ```
 docker login nvcr.io
@@ -130,7 +130,7 @@ b. Password: "YOUR_NGC_API_KEY"
 where `YOUR_NGC_API_KEY` corresponds to the key you generated from step 3.
 
 
-#### 5. Setup python environment
+### 5. Setup python environment
 NVIDIA recommends setting up a python environment using `miniconda`. The following instructions show how to setup a python `conda` environment.
 
 1. Follow the instructions in this [link](https://docs.conda.io/en/latest/miniconda.html) to set up a conda environment using a miniconda.
@@ -243,7 +243,7 @@ To download the `TAO` package, you can execute a command that will retrieve a co
     ```
     
     
-## 3. Launch Local Notebook
+# 3. Launch Local Notebook
 Assuming that you have followed the previous steps correctly, and you are currently in the `getting_started_v4.0.1` directory, you can execute the `cd` command to navigate to the `tao_launcher_starter_kit` subdirectory.
 
 ```
