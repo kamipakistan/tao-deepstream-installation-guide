@@ -1,5 +1,5 @@
 # Install Docker Engine on Ubuntu
-To get started with Docker Engine on Ubuntu, make sure you meet the prerequisites, and then follow the installation steps.
+Before you can start using Docker Engine on Ubuntu, it is important to ensure that your system meets the necessary prerequisites. Once you have confirmed that your system meets the requirements, you can proceed with the installation steps.
 
 ## Prerequisites
 ### OS requirements
