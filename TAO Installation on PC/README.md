@@ -241,3 +241,20 @@ To download the `TAO` package, you can execute a command that will retrieve a co
     ```
     export PATH=$PATH:~/.local/bin
     ```
+    
+    
+## 3. Launch Local Notebook
+Assuming that you have followed the previous steps correctly, and you are currently in the `getting_started_v4.0.1` directory, you can execute the `cd` command to navigate to the `tao_launcher_starter_kit` subdirectory.
+
+```
+cd notebooks/tao_launcher_starter_kit
+```
+
+After executing this command, you will be in the `tao_launcher_starter_kit` directory, where you can proceed with creating a TAO project and training it.
+
+Once you are in the `tao_launcher_starter_kit directory`, execute the `jupyter notebook` command:
+
+```
+jupter notebook
+```
+This should launch the Jupyter Notebook application in your default web browser, and you will be able to start working with notebooks.
