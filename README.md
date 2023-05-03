@@ -1,6 +1,6 @@
 # TAO and Deepstream Installation Guide
 
-<img src = "tao_launcher.jpg">
+<img src = "TAO_and_DeepStream.png">
 
 ## 1. [Installing TAO Toolkit on Your PC](TAO_Installation_On_PC/)
 To install TAO toolkit on your PC, you can access the provided [link]() or the above repository. The repository contains a comprehensive guide on how to install TAO, which is a toolkit for training custom deep learning models. The installation guide provides step-by-step instructions for installing the required dependencies and downloading and installing TAO on your PC. By following this guide, you should be able to successfully install and use TAO on your PC.
