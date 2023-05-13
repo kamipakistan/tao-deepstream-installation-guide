@@ -1,1 +1,1 @@
-## Please wait for a while as I will provide instructions for the installation of Deepstream in this repo.
+## We will soon provide instructions for the installation of Deepstream in this repo.
