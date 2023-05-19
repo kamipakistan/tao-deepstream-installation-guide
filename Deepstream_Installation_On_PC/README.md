@@ -53,7 +53,7 @@ This will create the following directory:
 The repository utilizes gst-python and pybind11 submodules. To initializes them, run the following command:
 ```
 cd /opt/nvidia/deepstream/deepstream/sources/deepstream_python_apps/
-git submodule update --init
+sudo git submodule update --init
 ```
 ### 1.4 Installing Gst-python
 Following commands ensure we add the new certificates that gst-python git server now uses:
