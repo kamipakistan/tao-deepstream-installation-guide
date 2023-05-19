@@ -118,7 +118,7 @@ sudo cmake ..  -DPYTHON_MAJOR_VERSION=3 -DPYTHON_MINOR_VERSION=8 \
 sudo make
 ```
 
-## 3. Installing the bindings
+## 3. Using the generated pip wheel
 Following commands can be used to install the generated pip wheel.
 
 ### 3.1 Installing the pip wheel
