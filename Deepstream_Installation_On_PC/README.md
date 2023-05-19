@@ -69,14 +69,23 @@ sudo make
 sudo make install
 ```
 
-## 2. Compiling the bindings
+
+## 2 - Building the bindings
 Python bindings are compiled using CMake. Following commands provide quick cmake configurations for common compilation options:
 
-
-### 2.1. Quick build 
-> (x86-ubuntu-20.04 | python 3.8 | Deepstream 6.2)
+### 2.1 Quick build (x86-ubuntu-18.04 | python 3.6 | Deepstream 6.0.1)
 ```
-cd ../../bindings/
+cd deepstream_python_apps/bindings
+sudo mkdir build
+cd build
+sudo cmake .. -DPYTHON_MAJOR_VERSION=3 -DPYTHON_MINOR_VERSION=6
+make
+```
+
+### 2.1.1 Quick build (x86-ubuntu-20.04 | python 3.8 | Deepstream 6.1)
+
+```
+cd deepstream_python_apps/bindings
 sudo mkdir build
 cd build
 sudo cmake ..
@@ -99,7 +108,7 @@ cmake .. [-D<var>=<value> [-D<var>=<value> [-D<var>=<value> ... ]]]
 | DS_PATH                 | /opt/nvidia/deepstream/deepstream-${DS_VERSION}     | Path where deepstream libraries are available          | Should match the existing deepstream library folder                                                     |
 
 #### 2.2.3 Example
-Following commands can be used to compile the bindings.
+Following commands can be used to compile the bindings for `linux_x86_64` and `deepstream-6.2`.
 ```
 cd deepstream_python_apps/bindings
 sudo mkdir build
