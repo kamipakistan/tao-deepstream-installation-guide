@@ -52,7 +52,7 @@ This will create the following directory:
 
 The repository utilizes gst-python and pybind11 submodules. To initializes them, run the following command:
 ```
-cd /opt/nvidia/deepstream/deepstream/sources/deepstream_python_apps/
+cd /opt/nvidia/deepstream/deepstream-6.2/sources/deepstream_python_apps/
 sudo git submodule update --init
 ```
 ### 1.4 Installing Gst-python
@@ -111,11 +111,11 @@ cmake .. [-D<var>=<value> [-D<var>=<value> [-D<var>=<value> ... ]]]
 Following commands can be used to compile the bindings natively on Jetson devices
 ```
 cd deepstream_python_apps/bindings
-mkdir build
+sudo mkdir build
 cd build
-cmake ..  -DPYTHON_MAJOR_VERSION=3 -DPYTHON_MINOR_VERSION=8 \
+sudo cmake ..  -DPYTHON_MAJOR_VERSION=3 -DPYTHON_MINOR_VERSION=8 \
     -DPIP_PLATFORM=linux_aarch64 -DDS_PATH=/opt/nvidia/deepstream/deepstream/
-make
+sudo make
 ```
 ## 3. Using the generated pip wheel
 Following commands can be used to install the generated pip wheel.
@@ -134,18 +134,20 @@ If the wheel installation fails, upgrade the pip using the following command:
 sudo apt update
 sudo apt upgrade
 ```
+
+
 ### 3.2 Running sample with deepstream-app
+Once you have successfully completed the installation of the Python bindings, you can deactivate your conda environment if you are using one. Then, you can run the `deepstream_test1.py` script using the following command:
 ```
 cd
-cd /opt/nvidia/deepstream/deepstream-6.2/samples/configs/deepstream-app
-sudo deepstream-app -c source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8.txt
+cd /opt/nvidia/deepstream/deepstream-6.2/sources/deepstream_python_apps/apps/deepstream-test1
+sudo python3 deepstream_test_1.py ../../../../samples/streams/sample_qHD.h264
 ```
-Another example
-```
-cd deepstream_python_apps
-cd deepstream-test1/
-python3 deepstream_test_1.py ../../../../samples/streams/sample_qHD.h264
-```
+This command executes the `deepstream_test_1.py` script and passes the path to a sample video file (sample_qHD.h264) as an argument.
+
+Make sure to replace `../../../../samples/streams/sample_qHD.h264` with the actual path to your video file if it is located elsewhere.
+
+Running the script with this command will initiate the DeepStream test application and process the specified video file according to the logic defined in the deepstream_test_1.py script.
 
 > The scripts mentioned above have been sourced from this [repository](https://github.com/NVIDIA-AI-IOT/deepstream_python_apps/tree/master/bindings), and we express our gratitude to the author for their dedicated efforts in creating and maintaining them.
 
