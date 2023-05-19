@@ -108,16 +108,15 @@ cmake .. [-D<var>=<value> [-D<var>=<value> [-D<var>=<value> ... ]]]
 | DS_PATH                 | /opt/nvidia/deepstream/deepstream-${DS_VERSION}     | Path where deepstream libraries are available          | Should match the existing deepstream library folder                                                     |
 
 #### 2.2.3 Example
-Following commands can be used to compile the bindings for `linux_x86_64` and `deepstream-6.2`.
+Following commands can be used to compile the bindings natively on Jetson devices
 ```
 cd deepstream_python_apps/bindings
-sudo mkdir build
+mkdir build
 cd build
-sudo cmake ..  -DPYTHON_MAJOR_VERSION=3 -DPYTHON_MINOR_VERSION=8 \
-    -DPIP_PLATFORM=linux_x86_64 -DDS_PATH=/opt/nvidia/deepstream/deepstream-6.2/
-sudo make
+cmake ..  -DPYTHON_MAJOR_VERSION=3 -DPYTHON_MINOR_VERSION=8 \
+    -DPIP_PLATFORM=linux_aarch64 -DDS_PATH=/opt/nvidia/deepstream/deepstream/
+make
 ```
-
 ## 3. Using the generated pip wheel
 Following commands can be used to install the generated pip wheel.
 
