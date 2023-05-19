@@ -140,6 +140,12 @@ cd
 cd /opt/nvidia/deepstream/deepstream-6.2/samples/configs/deepstream-app
 sudo deepstream-app -c source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8.txt
 ```
+Another example
+'''
+cd deepstream_python_apps
+cd deepstream-test1/
+python3 deepstream_test_1.py ../../../../samples/streams/sample_qHD.h264
+'''
 
 > The scripts mentioned above have been sourced from this [repository](https://github.com/NVIDIA-AI-IOT/deepstream_python_apps/tree/master/bindings), and we express our gratitude to the author for their dedicated efforts in creating and maintaining them.
 
