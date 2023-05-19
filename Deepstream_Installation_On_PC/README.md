@@ -58,8 +58,7 @@ git submodule update --init
 ### 1.4 Installing Gst-python
 Following commands ensure we add the new certificates that gst-python git server now uses:
 ```
-sudo apt-get install -y apt-transport-https ca-certificates -y
-sudo update-ca-certificates
+sudo apt-get install --reinstall ca-certificates
 ```
 
 Build and install gst-python:
