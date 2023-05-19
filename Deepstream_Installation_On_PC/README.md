@@ -131,7 +131,8 @@ sudo pip3 install ./pyds-1.1.6-py3-none*.whl
 ### 3.1.1 pip wheel troubleshooting
 If the wheel installation fails, upgrade the pip using the following command:
 ```
-python3 -m pip install --upgrade pip
+sudo apt update
+sudo apt upgrade
 ```
 ### 3.2 Running sample with deepstream-app
 ```
