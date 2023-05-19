@@ -100,7 +100,7 @@ cmake .. [-D<var>=<value> [-D<var>=<value> [-D<var>=<value> ... ]]]
 | DS_PATH                 | /opt/nvidia/deepstream/deepstream-${DS_VERSION}     | Path where deepstream libraries are available          | Should match the existing deepstream library folder                                                     |
 
 #### 2.2.3 Example
-Following commands can be used to compile the bindings natively on Jetson devices
+Following commands can be used to compile the bindings.
 ```
 cd deepstream_python_apps/bindings
 sudo mkdir build
