@@ -110,6 +110,7 @@ cmake .. [-D<var>=<value> [-D<var>=<value> [-D<var>=<value> ... ]]]
 #### 2.2.3 Example
 Following commands can be used to compile the bindings natively on Jetson devices
 ```
+# change your current drive location to the deepstream_python_apps/bindings
 cd deepstream_python_apps/bindings
 sudo mkdir build
 cd build
